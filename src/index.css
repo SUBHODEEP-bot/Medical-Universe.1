@@ -182,3 +182,44 @@
 *:focus {
   outline: none !important;
 }
+
+/* Mobile-friendly adjustments */
+@layer components {
+  /* Make media elements responsive */
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Provide tighter horizontal padding on small screens */
+  .container {
+    @apply px-4 sm:px-8;
+  }
+
+  /* Make primary CTA easier to tap on small devices */
+  .cta-button {
+    @apply px-6 py-3 rounded-full text-white font-medium;
+  }
+}
+
+/* Small-screen specific tweaks */
+@media (max-width: 640px) {
+  :root {
+    --navbar-height: 64px;
+    --navbar-height-scrolled: 56px;
+  }
+
+  .page-content {
+    padding-top: var(--navbar-height);
+  }
+
+  .floating-label {
+    left: 0.75rem;
+    top: 0.5rem;
+  }
+
+  .service-card {
+    @apply rounded-xl p-4;
+  }
+}
