@@ -239,35 +239,35 @@ const HospitalPage = () => {
   return <div className="min-h-screen bg-gradient-to-b from-slate-50 to-blue-50/30">
       <Navbar />
       
-      <div className="pt-20 pb-16">
-        <div className="container mx-auto px-4 max-w-7xl">
+      <div className="pt-16 sm:pt-20 pb-12 sm:pb-16">
+        <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
           {/* Professional Medical Header */}
-          <div className="text-center mb-12 bg-white rounded-2xl shadow-sm border border-slate-200 p-12 mx-auto max-w-4xl">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow-lg">
-                <Building2 className="h-8 w-8 text-white" />
+          <div className="text-center mb-8 sm:mb-12 bg-white rounded-lg sm:rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 md:p-12 mx-auto max-w-4xl">
+            <div className="flex items-center justify-center mb-4 sm:mb-6">
+              <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-blue-600 flex items-center justify-center shadow-lg">
+                <Building2 className="h-7 sm:h-8 w-7 sm:w-8 text-white" />
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
               Hospital Services
             </h1>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6 rounded-full"></div>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            <div className="w-20 sm:w-24 h-1 bg-blue-600 mx-auto mb-4 sm:mb-6 rounded-full"></div>
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Advanced medical facilities with real-time availability tracking and seamless online booking system
             </p>
           </div>
 
           {/* Professional Availability Grid */}
-          <div className="mb-12">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold text-slate-900">Current Availability</h2>
-              <div className="flex items-center gap-2 text-sm text-slate-600">
+          <div className="mb-10 sm:mb-12">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 mb-6 sm:mb-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Current Availability</h2>
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-600">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 Real-time updates
               </div>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {hospitalData.beds.map(bed => 
                 <Card key={bed.id} className="group hover:shadow-lg transition-all duration-300 border-slate-200 bg-white overflow-hidden">
                   <div className="relative h-40 overflow-hidden">
@@ -353,59 +353,59 @@ const HospitalPage = () => {
           </div>
 
           {/* Professional Booking Section */}
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 max-w-3xl mx-auto">
+          <div className="bg-white rounded-lg sm:rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 md:p-10 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="flex items-center justify-center mb-6">
-                <div className="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center">
-                  <Calendar className="h-7 w-7 text-white" />
+              <div className="flex items-center justify-center mb-4 sm:mb-6">
+                <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-blue-600 flex items-center justify-center">
+                  <Calendar className="h-6 sm:h-7 w-6 sm:w-7 text-white" />
                 </div>
               </div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3 sm:mb-4">
                 Book Hospital Bed
               </h2>
-              <div className="w-16 h-1 bg-blue-600 mx-auto mb-6 rounded-full"></div>
-              <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
+              <div className="w-16 h-1 bg-blue-600 mx-auto mb-4 sm:mb-6 rounded-full"></div>
+              <p className="text-sm sm:text-base text-slate-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
                 Secure your hospital bed with our streamlined booking system featuring instant confirmation and integrated payment processing
               </p>
               
               {!user ? (
-                <div className="space-y-6 bg-slate-50 rounded-xl p-8">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center">
-                      <CheckCircle className="h-6 w-6 text-slate-400" />
+                <div className="space-y-4 sm:space-y-6 bg-slate-50 rounded-lg sm:rounded-xl p-6 sm:p-8">
+                  <div className="flex items-center justify-center mb-3 sm:mb-4">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-slate-200 flex items-center justify-center">
+                      <CheckCircle className="h-5 sm:h-6 w-5 sm:w-6 text-slate-400" />
                     </div>
                   </div>
-                  <p className="text-slate-600 font-medium">Please sign in to access our booking system</p>
+                  <p className="text-sm sm:text-base text-slate-600 font-medium">Please sign in to access our booking system</p>
                   <Button 
                     onClick={handleSignInRedirect} 
                     size="lg" 
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 w-full text-sm sm:text-base"
                   >
                     Sign In to Book
                   </Button>
                 </div>
               ) : (
-                <div className="space-y-6">
-                  <div className="grid md:grid-cols-3 gap-4 mb-6">
-                    <div className="text-center p-4 bg-blue-50 rounded-lg">
-                      <CheckCircle className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                      <p className="text-sm font-medium text-slate-700">Instant Confirmation</p>
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="text-center p-3 sm:p-4 bg-blue-50 rounded-lg">
+                      <CheckCircle className="h-6 sm:h-8 w-6 sm:w-8 text-blue-600 mx-auto mb-1 sm:mb-2" />
+                      <p className="text-xs sm:text-sm font-medium text-slate-700">Instant Confirmation</p>
                     </div>
-                    <div className="text-center p-4 bg-blue-50 rounded-lg">
-                      <CheckCircle className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                      <p className="text-sm font-medium text-slate-700">Secure Payment</p>
+                    <div className="text-center p-3 sm:p-4 bg-blue-50 rounded-lg">
+                      <CheckCircle className="h-6 sm:h-8 w-6 sm:w-8 text-blue-600 mx-auto mb-1 sm:mb-2" />
+                      <p className="text-xs sm:text-sm font-medium text-slate-700">Secure Payment</p>
                     </div>
-                    <div className="text-center p-4 bg-blue-50 rounded-lg">
-                      <CheckCircle className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                      <p className="text-sm font-medium text-slate-700">24/7 Support</p>
+                    <div className="text-center p-3 sm:p-4 bg-blue-50 rounded-lg">
+                      <CheckCircle className="h-6 sm:h-8 w-6 sm:w-8 text-blue-600 mx-auto mb-1 sm:mb-2" />
+                      <p className="text-xs sm:text-sm font-medium text-slate-700">24/7 Support</p>
                     </div>
                   </div>
                   <Button 
                     onClick={() => setShowBookingForm(true)} 
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300" 
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 w-full text-sm sm:text-base" 
                     size="lg"
                   >
-                    <Calendar className="h-5 w-5 mr-2" />
+                    <Calendar className="h-4 sm:h-5 w-4 sm:w-5 mr-2" />
                     Book Bed Now
                   </Button>
                 </div>

@@ -105,19 +105,19 @@ const CartPage = () => {
             </Button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
             {/* Cart Items */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-lg shadow-sm">
-                <div className="p-4 border-b border-gray-200">
-                  <h2 className="font-semibold text-gray-900">Cart Items</h2>
+                <div className="p-3 sm:p-4 border-b border-gray-200">
+                  <h2 className="font-semibold text-sm sm:text-base text-gray-900">Cart Items</h2>
                 </div>
                 <div className="divide-y divide-gray-200">
                   {cartItems.map((item) => (
-                    <div key={item.id} className="p-4">
-                      <div className="flex gap-4">
+                    <div key={item.id} className="p-3 sm:p-4">
+                      <div className="flex gap-3 sm:gap-4">
                         {/* Medicine Image */}
-                        <div className="flex-shrink-0 w-16 h-16 bg-gray-100 rounded-lg overflow-hidden">
+                        <div className="flex-shrink-0 w-14 sm:w-16 h-14 sm:h-16 bg-gray-100 rounded-lg overflow-hidden">
                           {item.medicine?.image_url ? (
                             <img 
                               src={item.medicine.image_url} 
@@ -133,36 +133,36 @@ const CartPage = () => {
                         
                         {/* Medicine Details */}
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-medium text-gray-900 truncate">
+                          <h3 className="font-medium text-gray-900 truncate text-sm sm:text-base">
                             {item.medicine?.name}
                           </h3>
-                          <p className="text-sm text-gray-500 mt-1">
+                          <p className="text-xs sm:text-sm text-gray-500 mt-1">
                             {item.medicine?.category}
                           </p>
                           
                           {/* Price and Controls */}
-                          <div className="flex items-center justify-between mt-3">
-                            <div className="flex items-center gap-3">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 mt-3">
+                            <div className="flex items-center gap-2 sm:gap-3">
                               {/* Quantity Controls */}
                               <div className="flex items-center border border-gray-300 rounded-md">
                                 <Button
                                   variant="ghost"
                                   size="icon"
-                                  className="h-8 w-8 hover:bg-gray-100"
+                                  className="h-7 sm:h-8 w-7 sm:w-8 hover:bg-gray-100 text-xs sm:text-sm"
                                   onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                   disabled={item.quantity <= 1}
                                 >
                                   <Minus className="h-3 w-3" />
                                 </Button>
                                 
-                                <span className="px-3 py-1 text-sm font-medium min-w-[2rem] text-center">
+                                <span className="px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium min-w-[1.5rem] sm:min-w-[2rem] text-center">
                                   {item.quantity}
                                 </span>
                                 
                                 <Button
                                   variant="ghost"
                                   size="icon"
-                                  className="h-8 w-8 hover:bg-gray-100"
+                                  className="h-7 sm:h-8 w-7 sm:w-8 hover:bg-gray-100 text-xs sm:text-sm"
                                   onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                 >
                                   <Plus className="h-3 w-3" />
@@ -173,16 +173,16 @@ const CartPage = () => {
                               <Button
                                 variant="ghost"
                                 size="icon"
-                                className="h-8 w-8 text-red-500 hover:text-red-700 hover:bg-red-50"
+                                className="h-7 sm:h-8 w-7 sm:w-8 text-red-500 hover:text-red-700 hover:bg-red-50"
                                 onClick={() => removeFromCart(item.id)}
                               >
-                                <Trash2 className="h-4 w-4" />
+                                <Trash2 className="h-3 sm:h-4 w-3 sm:w-4" />
                               </Button>
                             </div>
                             
                             {/* Price */}
                             <div className="text-right">
-                              <div className="font-semibold text-gray-900">
+                              <div className="font-semibold text-gray-900 text-sm sm:text-base">
                                 ₹{((item.medicine?.price || 0) * item.quantity).toFixed(2)}
                               </div>
                               {item.quantity > 1 && (
@@ -203,32 +203,32 @@ const CartPage = () => {
             {/* Order Summary */}
             <div className="lg:col-span-1">
               <div className="bg-white rounded-lg shadow-sm sticky top-4">
-                <div className="p-4 border-b border-gray-200">
-                  <h2 className="font-semibold text-gray-900">Order Summary</h2>
+                <div className="p-3 sm:p-4 border-b border-gray-200">
+                  <h2 className="font-semibold text-sm sm:text-base text-gray-900">Order Summary</h2>
                 </div>
-                <div className="p-4">
-                  <div className="space-y-3">
-                    <div className="flex justify-between text-sm">
+                <div className="p-3 sm:p-4">
+                  <div className="space-y-2 sm:space-y-3">
+                    <div className="flex justify-between text-xs sm:text-sm">
                       <span className="text-gray-600">Subtotal ({cartItems.length} items)</span>
                       <span className="font-medium">₹{cartTotal.toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between text-sm">
+                    <div className="flex justify-between text-xs sm:text-sm">
                       <span className="text-gray-600">Delivery Fee</span>
                       <span className="font-medium">₹50.00</span>
                     </div>
-                    <div className="border-t pt-3 mt-3">
+                    <div className="border-t pt-2 sm:pt-3 mt-2 sm:mt-3">
                       <div className="flex justify-between">
-                        <span className="font-semibold text-gray-900">Total</span>
-                        <span className="font-bold text-lg text-gray-900">
+                        <span className="font-semibold text-gray-900 text-sm">Total</span>
+                        <span className="font-bold text-base sm:text-lg text-gray-900">
                           ₹{(cartTotal + 50).toFixed(2)}
                         </span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="p-4 border-t border-gray-200">
+                <div className="p-3 sm:p-4 border-t border-gray-200">
                   <Button 
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 font-medium"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 sm:py-3 font-medium text-sm sm:text-base"
                     onClick={() => navigate('/checkout')}
                     disabled={cartItems.length === 0}
                   >

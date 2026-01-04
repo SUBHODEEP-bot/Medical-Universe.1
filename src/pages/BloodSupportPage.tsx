@@ -20,35 +20,35 @@ const BloodSupportPage = () => {
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <Navbar />
       
-      <div className="pt-28 pb-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      <div className="pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="text-center mb-10 sm:mb-16">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
               Blood <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Support</span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-2">
               Connect blood donors with those in need. Save lives through our secure blood support system.
             </p>
           </div>
 
           {!showRequestForm && !showDonorForm && !showReceipts && (
             <>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto mb-10 sm:mb-16">
                 {/* Buy Blood Card */}
-                <Card className="border-0 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2 bg-gradient-to-br from-red-50 to-red-100">
-                  <CardHeader className="text-center pb-4">
-                    <div className="mx-auto w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mb-4">
-                      <ShoppingCart className="h-8 w-8 text-white" />
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 bg-gradient-to-br from-red-50 to-red-100">
+                  <CardHeader className="text-center pb-3 sm:pb-4">
+                    <div className="mx-auto w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                      <ShoppingCart className="h-7 sm:h-8 w-7 sm:w-8 text-white" />
                     </div>
-                    <CardTitle className="text-2xl font-bold text-gray-900">Request Blood</CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardTitle className="text-lg sm:text-2xl font-bold text-gray-900">Request Blood</CardTitle>
+                    <CardDescription className="text-xs sm:text-sm text-gray-600">
                       Request blood for emergency medical needs. Get connected with verified donors.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-center">
                     <Button 
                       onClick={() => setShowRequestForm(true)}
-                      className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold py-3 rounded-full"
+                      className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold py-2 sm:py-3 rounded-full text-sm sm:text-base"
                     >
                       Request Blood
                     </Button>
@@ -56,20 +56,20 @@ const BloodSupportPage = () => {
                 </Card>
 
                 {/* Donate Blood Card */}
-                <Card className="border-0 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2 bg-gradient-to-br from-green-50 to-green-100">
-                  <CardHeader className="text-center pb-4">
-                    <div className="mx-auto w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mb-4">
-                      <Heart className="h-8 w-8 text-white" />
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 bg-gradient-to-br from-green-50 to-green-100">
+                  <CardHeader className="text-center pb-3 sm:pb-4">
+                    <div className="mx-auto w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                      <Heart className="h-7 sm:h-8 w-7 sm:w-8 text-white" />
                     </div>
-                    <CardTitle className="text-2xl font-bold text-gray-900">Donate Blood</CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardTitle className="text-lg sm:text-2xl font-bold text-gray-900">Donate Blood</CardTitle>
+                    <CardDescription className="text-xs sm:text-sm text-gray-600">
                       Become a life saver by donating blood. Join our community of verified donors.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-center">
                     <Button 
                       onClick={() => setShowDonorForm(true)}
-                      className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 rounded-full"
+                      className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-2 sm:py-3 rounded-full text-sm sm:text-base"
                     >
                       Become a Donor
                     </Button>
@@ -77,20 +77,20 @@ const BloodSupportPage = () => {
                 </Card>
 
                 {/* View Receipts Card */}
-                <Card className="border-0 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2 bg-gradient-to-br from-blue-50 to-blue-100">
-                  <CardHeader className="text-center pb-4">
-                    <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
-                      <FileText className="h-8 w-8 text-white" />
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 bg-gradient-to-br from-blue-50 to-blue-100">
+                  <CardHeader className="text-center pb-3 sm:pb-4">
+                    <div className="mx-auto w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                      <FileText className="h-7 sm:h-8 w-7 sm:w-8 text-white" />
                     </div>
-                    <CardTitle className="text-2xl font-bold text-gray-900">View Receipts</CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardTitle className="text-lg sm:text-2xl font-bold text-gray-900">View Receipts</CardTitle>
+                    <CardDescription className="text-xs sm:text-sm text-gray-600">
                       Check approved blood request receipts and delivery confirmations.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-center">
                     <Button 
                       onClick={() => setShowReceipts(true)}
-                      className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 rounded-full"
+                      className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-2 sm:py-3 rounded-full text-sm sm:text-base"
                     >
                       View Receipts
                     </Button>
