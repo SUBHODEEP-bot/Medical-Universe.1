@@ -288,11 +288,11 @@ const HealthAssistantPage = () => {
   };
   return <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
       <Navbar onScrollChange={handleNavbarScroll} />
-      <div className={`container mx-auto px-4 py-12 ${isScrolled ? 'page-content-scrolled' : 'page-content'}`}>
-        <div className="max-w-4xl mx-auto my-[50px]">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2 animate-fade-in">AI Health Assistant</h1>
-            <p className="text-lg text-gray-600">
+      <div className={`container mx-auto px-3 sm:px-4 py-8 sm:py-12 ${isScrolled ? 'page-content-scrolled' : 'page-content'}`}>
+        <div className="max-w-4xl mx-auto my-[40px] sm:my-[50px]">
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 sm:mb-2 animate-fade-in">AI Health Assistant</h1>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 px-2">
               Get instant answers to your health questions from our intelligent medical assistant.
             </p>
           </div>
