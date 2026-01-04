@@ -256,9 +256,6 @@ const DoctorsPage = () => {
                             <span className="font-semibold">{doctor.consultationFee}</span>
                           </div>
                         </div>
-                          <span>Experience: {doctor.experience} years</span>
-                          <span className="font-semibold text-green-600">{doctor.consultationFee}</span>
-                        </div>
                         
                         {/* Availability Status */}
                         <div className={`flex items-center p-2 rounded-lg ${availability.bgColor}`}>
