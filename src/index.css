@@ -222,4 +222,44 @@
   .service-card {
     @apply rounded-xl p-4;
   }
+
+  /* Improve button tap targets on mobile */
+  button, a {
+    min-height: 44px;
+  }
+
+  /* Stack form elements vertically on mobile */
+  .form-row {
+    @apply flex flex-col space-y-3;
+  }
+
+  /* Improve card spacing on mobile */
+  .card {
+    @apply space-y-3;
+  }
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+  /* Allow form rows to be horizontal */
+  .form-row {
+    @apply flex flex-row space-x-3 space-y-0;
+  }
+
+  /* Improve readability on larger screens */
+  .container {
+    @apply max-w-7xl;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  :root {
+    --navbar-height: 76px;
+    --navbar-height-scrolled: 64px;
+  }
+
+  .service-card {
+    @apply rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 p-6;
+  }
 }

@@ -46,57 +46,58 @@ const CartPage = () => {
 
   return (
     <PageLayout userRole="patient" className="bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 py-6">
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6">
         {/* Header */}
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center gap-2 mb-4 sm:mb-6">
           <Button 
             variant="ghost" 
             onClick={() => navigate('/store')} 
-            className="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+            className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm sm:text-base"
           >
             <ArrowLeft className="h-4 w-4" />
-            Continue Shopping
+            <span className="hidden sm:inline">Continue Shopping</span>
+            <span className="sm:hidden">Back</span>
           </Button>
         </div>
 
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Shopping Cart</h1>
-          <span className="text-gray-500">{cartItems.length} item(s)</span>
+        <div className="flex items-center justify-between mb-4 sm:mb-6">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Shopping Cart</h1>
+          <span className="text-xs sm:text-sm text-gray-500">{cartItems.length} item(s)</span>
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg p-4 animate-pulse">
+              <div className="bg-white rounded-lg p-3 sm:p-4 animate-pulse space-y-3 sm:space-y-4">
                 {[...Array(3)].map((_, i) => (
-                  <div key={i} className="flex gap-4 py-4 border-b last:border-b-0">
-                    <div className="w-16 h-16 bg-gray-200 rounded"></div>
+                  <div key={i} className="flex gap-3 sm:gap-4 py-3 sm:py-4 border-b last:border-b-0">
+                    <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gray-200 rounded flex-shrink-0"></div>
                     <div className="flex-1 space-y-2">
-                      <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                      <div className="h-3 bg-gray-200 rounded w-1/2"></div>
-                      <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+                      <div className="h-3 sm:h-4 bg-gray-200 rounded w-3/4"></div>
+                      <div className="h-2 sm:h-3 bg-gray-200 rounded w-1/2"></div>
+                      <div className="h-3 sm:h-4 bg-gray-200 rounded w-1/4"></div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-lg p-4 h-64 animate-pulse">
-                <div className="space-y-3">
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded"></div>
+              <div className="bg-white rounded-lg p-3 sm:p-4 h-56 sm:h-64 animate-pulse">
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="h-3 sm:h-4 bg-gray-200 rounded"></div>
+                  <div className="h-3 sm:h-4 bg-gray-200 rounded"></div>
+                  <div className="h-3 sm:h-4 bg-gray-200 rounded"></div>
                 </div>
               </div>
             </div>
           </div>
         ) : cartItems.length === 0 ? (
-          <div className="text-center py-16">
-            <div className="mx-auto mb-6 bg-blue-50 h-24 w-24 rounded-full flex items-center justify-center">
-              <ShoppingBag className="h-12 w-12 text-blue-500" />
+          <div className="text-center py-12 sm:py-16">
+            <div className="mx-auto mb-4 sm:mb-6 bg-blue-50 h-20 sm:h-24 w-20 sm:w-24 rounded-full flex items-center justify-center">
+              <ShoppingBag className="h-10 sm:h-12 w-10 sm:w-12 text-blue-500" />
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-gray-900">Your cart is empty</h3>
-            <p className="text-gray-500 mb-6 max-w-md mx-auto">
+            <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-900">Your cart is empty</h3>
+            <p className="text-gray-500 mb-4 sm:mb-6 max-w-md mx-auto px-2 text-sm sm:text-base">
               Looks like you haven't added any medicines to your cart yet. Start shopping to find great deals!
             </p>
             <Button onClick={() => navigate('/store')} className="bg-blue-600 hover:bg-blue-700">

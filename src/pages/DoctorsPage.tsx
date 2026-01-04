@@ -183,20 +183,20 @@ const DoctorsPage = () => {
           </div>
           
           {/* Search and Filter */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
             <div className="relative">
-              <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-2.5 sm:top-3 h-4 w-4 text-gray-400" />
               <Input
                 placeholder="Search doctors by name or specialty"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
+                className="pl-10 text-sm"
               />
             </div>
             <select
               value={selectedSpecialty}
               onChange={(e) => setSelectedSpecialty(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               {specialties.map((specialty) => (
                 <option key={specialty} value={specialty}>{specialty}</option>
@@ -213,27 +213,27 @@ const DoctorsPage = () => {
 
           {/* Doctors Grid */}
           {!isLoading && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {filteredDoctors.map((doctor) => {
                 const availability = getAvailabilityDisplay(doctor);
                 return (
-                  <Card key={`doctor-${doctor.id}-${doctor.email}`} className="overflow-hidden">
-                    <CardHeader className="pb-2">
-                      <div className="flex items-center space-x-4">
+                  <Card key={`doctor-${doctor.id}-${doctor.email}`} className="overflow-hidden h-full flex flex-col">
+                    <CardHeader className="pb-2 sm:pb-3">
+                      <div className="flex items-center space-x-3 sm:space-x-4">
                         <img 
                           src={doctor.image} 
                           alt={doctor.name} 
-                          className="w-16 h-16 rounded-full object-cover"
+                          className="w-14 sm:w-16 h-14 sm:h-16 rounded-full object-cover flex-shrink-0"
                           onError={(e) => {
                             (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80';
                           }}
                         />
-                        <div>
-                          <CardTitle className="text-lg">{doctor.name}</CardTitle>
-                          <p className="text-blue-600 font-medium">{doctor.specialty}</p>
-                          <div className="flex items-center">
-                            <Star className="h-4 w-4 text-yellow-500 mr-1" fill="currentColor" />
-                            <span className="text-sm font-medium">{doctor.rating > 0 ? doctor.rating : 'New'}</span>
+                        <div className="min-w-0 flex-1">
+                          <CardTitle className="text-base sm:text-lg line-clamp-2">{doctor.name}</CardTitle>
+                          <p className="text-blue-600 font-medium text-xs sm:text-sm truncate">{doctor.specialty}</p>
+                          <div className="flex items-center mt-1">
+                            <Star className="h-3 sm:h-4 w-3 sm:w-4 text-yellow-500 mr-1 flex-shrink-0" fill="currentColor" />
+                            <span className="text-xs sm:text-sm font-medium">{doctor.rating > 0 ? doctor.rating : 'New'}</span>
                             {doctor.rating > 0 && (
                               <span className="text-xs text-gray-500 ml-1">({doctor.reviews})</span>
                             )}
@@ -241,13 +241,21 @@ const DoctorsPage = () => {
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2 text-sm text-gray-600">
+                    <CardContent className="flex-1 flex flex-col">
+                      <div className="space-y-2 text-xs sm:text-sm text-gray-600 flex-1">
                         <div className="flex items-center">
-                          <MapPin className="h-4 w-4 mr-2" />
-                          <span>{doctor.location}</span>
+                          <MapPin className="h-3 sm:h-4 w-3 sm:w-4 mr-2 flex-shrink-0" />
+                          <span className="truncate">{doctor.location}</span>
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex justify-between gap-2">
+                          <div className="flex items-center">
+                            <Clock className="h-3 sm:h-4 w-3 sm:w-4 mr-2 flex-shrink-0" />
+                            <span className="truncate">{doctor.experience}y exp</span>
+                          </div>
+                          <div className="text-right">
+                            <span className="font-semibold">{doctor.consultationFee}</span>
+                          </div>
+                        </div>
                           <span>Experience: {doctor.experience} years</span>
                           <span className="font-semibold text-green-600">{doctor.consultationFee}</span>
                         </div>

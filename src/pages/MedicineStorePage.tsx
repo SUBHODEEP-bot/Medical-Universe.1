@@ -53,19 +53,20 @@ const MedicineStorePage = () => {
   });
   const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   return <PageLayout className="bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-8">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0 mb-6 sm:mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Medicine Store</h1>
-            <p className="text-gray-600">Find and order medicines with ease</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">Medicine Store</h1>
+            <p className="text-sm sm:text-base text-gray-600">Find and order medicines with ease</p>
           </div>
           
-          <div className="flex items-center space-x-4">
-            <Button asChild variant="outline" className="relative">
+          <div className="flex items-center gap-2">
+            <Button asChild variant="outline" className="relative w-full sm:w-auto text-xs sm:text-sm">
               <Link to="/cart">
                 <ShoppingCart className="h-4 w-4 mr-2" />
-                Cart
+                <span className="hidden sm:inline">Cart</span>
+                <span className="sm:hidden">Cart</span>
                 {cartItemCount > 0 && <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                     {cartItemCount}
                   </span>}
@@ -75,9 +76,9 @@ const MedicineStorePage = () => {
         </div>
 
         <Tabs defaultValue="medicines" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mb-6 bg-zinc-400">
-            <TabsTrigger value="medicines" className="text-neutral-950">Medicines</TabsTrigger>
-            <TabsTrigger value="reviews" className="flex items-center text-gray-950">
+          <TabsList className="grid w-full grid-cols-2 mb-4 sm:mb-6 bg-zinc-400 text-xs sm:text-sm">
+            <TabsTrigger value="medicines" className="text-neutral-950 text-xs sm:text-sm">Medicines</TabsTrigger>
+            <TabsTrigger value="reviews" className="flex items-center text-gray-950 text-xs sm:text-sm">
               <Star className="h-4 w-4 mr-2" />
               Reviews & Ratings
             </TabsTrigger>

@@ -50,26 +50,26 @@ const Navbar: React.FC<NavbarProps> = ({ userRole = null, onScrollChange }) => {
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 border-b border-blue-200 ${
         scrolled 
-          ? "py-2 bg-white/95 shadow-md backdrop-blur-sm" 
-          : "py-4 bg-white/80"
+          ? "py-1 sm:py-2 bg-white/95 shadow-md backdrop-blur-sm" 
+          : "py-2 sm:py-4 bg-white/80"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between px-4">
-        <Link to="/" className="flex items-center space-x-2">
+      <div className="container mx-auto flex items-center justify-between px-2 sm:px-3 md:px-4">
+        <Link to="/" className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
           <div className={`${
-            scrolled ? "w-9 h-9" : "w-10 h-10"
+            scrolled ? "w-8 sm:w-9 h-8 sm:h-9" : "w-9 sm:w-10 h-9 sm:h-10"
           } rounded-full bg-gradient-to-br from-medical-aqua to-medical-cyan flex items-center justify-center transition-all duration-300`}>
-            <span className="text-white font-bold text-xl">M</span>
+            <span className="text-white font-bold text-lg">M</span>
           </div>
           <span className={`${
-            scrolled ? "text-xl" : "text-2xl"
-          } font-bold bg-gradient-to-r from-medical-aqua to-medical-cyan bg-clip-text text-transparent transition-all duration-300`}>
+            scrolled ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"
+          } font-bold bg-gradient-to-r from-medical-aqua to-medical-cyan bg-clip-text text-transparent transition-all duration-300 hidden sm:inline`}>
             MedicalUniverse
           </span>
         </Link>
 
         {!isMobile && (
-          <div className="flex space-x-8 ml-10">
+          <div className="hidden lg:flex space-x-4 xl:space-x-8 ml-6 xl:ml-10">
             <NavLink to="/" icon={<Heart className="h-4 w-4" />} label="Home" />
             <NavLink to="/hospital" icon={<Building2 className="h-4 w-4" />} label="Our Hospital" />
             <NavLink to="/store" icon={<ShoppingBag className="h-4 w-4" />} label="Medicine Store" />
@@ -82,28 +82,28 @@ const Navbar: React.FC<NavbarProps> = ({ userRole = null, onScrollChange }) => {
           </div>
         )}
 
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-1 sm:space-x-2">
           <SignedOut>
             <SignInButton mode="modal">
               <Button 
                 variant="outline" 
-                className="rounded-full hover:bg-gradient-med hover:text-white hover:border-transparent transition-all"
+                className="rounded-full hover:bg-gradient-med hover:text-white hover:border-transparent transition-all hidden sm:block text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2"
               >
                 Log in
               </Button>
             </SignInButton>
             <Link to="/auth">
-              <Button className="rounded-full bg-gradient-med hover:shadow-lg hover:scale-105 transition-all">
+              <Button className="rounded-full bg-gradient-med hover:shadow-lg hover:scale-105 transition-all text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2">
                 Sign up
               </Button>
             </Link>
           </SignedOut>
 
           <SignedIn>
-            <div className="flex items-center space-x-2">
+            <div className="hidden sm:flex items-center space-x-1 sm:space-x-2">
               {currentUserRole === 'patient' && (
                 <Link to="/orders">
-                  <Button variant="outline" className="rounded-full">
+                  <Button variant="outline" className="rounded-full text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2">
                     My Orders
                   </Button>
                 </Link>
@@ -111,11 +111,13 @@ const Navbar: React.FC<NavbarProps> = ({ userRole = null, onScrollChange }) => {
               <Link to={`/${currentUserRole || 'patient'}-dashboard`}>
                 <Button 
                   variant="outline" 
-                  className="rounded-full hover:bg-gradient-med hover:text-white hover:border-transparent transition-all"
+                  className="rounded-full hover:bg-gradient-med hover:text-white hover:border-transparent transition-all text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
                 >
-                  My Dashboard
+                  Dashboard
                 </Button>
               </Link>
+            </div>
+            <div className="scale-75 sm:scale-100 origin-right">
               <UserButton afterSignOutUrl="/" />
             </div>
           </SignedIn>
@@ -123,12 +125,12 @@ const Navbar: React.FC<NavbarProps> = ({ userRole = null, onScrollChange }) => {
           {isMobile && (
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="h-6 w-6" />
+                <Button variant="ghost" size="icon" className="lg:hidden h-8 w-8 sm:h-10 sm:w-10">
+                  <Menu className="h-5 sm:h-6 w-5 sm:w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <div className="flex flex-col space-y-4 mt-8">
+              <SheetContent side="right" className="w-[280px] sm:w-[400px]">
+                <div className="flex flex-col space-y-2 mt-6">
                   <MobileNavLink to="/" icon={<Heart className="h-5 w-5" />} label="Home" />
                   <MobileNavLink to="/hospital" icon={<Building2 className="h-5 w-5" />} label="Our Hospital" />
                   <MobileNavLink to="/store" icon={<ShoppingBag className="h-5 w-5" />} label="Medicine Store" />
@@ -140,7 +142,7 @@ const Navbar: React.FC<NavbarProps> = ({ userRole = null, onScrollChange }) => {
                   <MobileNavLink to="/contact" icon={<Phone className="h-5 w-5" />} label="Contact" />
                   
                   <SignedIn>
-                    <div className="border-t border-gray-100 pt-4 mt-2">
+                    <div className="border-t border-gray-100 pt-3 mt-3">
                       <MobileNavLink to="/orders" icon={<Activity className="h-5 w-5" />} label="My Orders" />
                       <MobileNavLink to={`/${currentUserRole || 'patient'}-dashboard`} icon={<User className="h-5 w-5" />} label="My Dashboard" />
                     </div>
@@ -194,16 +196,16 @@ const MobileNavLink: React.FC<NavLinkProps> = ({ to, icon, label }) => {
   return (
     <Link 
       to={to} 
-      className={`flex items-center space-x-3 font-medium text-lg px-2 py-3 rounded-lg transition-colors ${
+      className={`flex items-center space-x-3 font-medium text-base sm:text-lg px-2 py-2 sm:py-3 rounded-lg transition-colors ${
         isActive 
           ? "bg-[#22C55E]/10 text-[#22C55E]" 
           : "hover:bg-gray-50"
       }`}
     >
-      <span className={`p-2 rounded-full text-white ${
+      <span className={`p-2 rounded-full text-white flex-shrink-0 ${
         isActive ? "bg-[#22C55E]" : "bg-gradient-med"
       }`}>{icon}</span>
-      <span>{label}</span>
+      <span className="line-clamp-1">{label}</span>
     </Link>
   );
 };
