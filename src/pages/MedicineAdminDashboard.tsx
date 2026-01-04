@@ -159,40 +159,40 @@ const MedicineAdminDashboard = () => {
     : allOrders;
   
   return (
-    <PageLayout userRole="admin" className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Store Admin Dashboard</h1>
-        <Button variant="ghost" onClick={handleLogout}>
-          <LogOut className="h-4 w-4 mr-2" />
+    <PageLayout userRole="admin" className="container mx-auto px-3 sm:px-4 py-6 sm:py-8">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Store Admin Dashboard</h1>
+        <Button variant="ghost" onClick={handleLogout} className="text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-3 h-auto">
+          <LogOut className="h-3 sm:h-4 w-3 sm:w-4 mr-1 sm:mr-2" />
           Logout
         </Button>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
         <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-base text-gray-500">Total Products</CardTitle>
+          <CardHeader className="pb-2 p-4 sm:p-6">
+            <CardTitle className="text-xs sm:text-sm text-gray-500">Total Products</CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold">{medicines.length}</div>
+          <CardContent className="p-4 sm:p-6">
+            <div className="text-2xl sm:text-3xl font-bold">{medicines.length}</div>
           </CardContent>
         </Card>
         
         <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-base text-gray-500">Total Orders</CardTitle>
+          <CardHeader className="pb-2 p-4 sm:p-6">
+            <CardTitle className="text-xs sm:text-sm text-gray-500">Total Orders</CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold">{allOrders.length}</div>
+          <CardContent className="p-4 sm:p-6">
+            <div className="text-2xl sm:text-3xl font-bold">{allOrders.length}</div>
           </CardContent>
         </Card>
         
         <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-base text-gray-500">Pending Orders</CardTitle>
+          <CardHeader className="pb-2 p-4 sm:p-6">
+            <CardTitle className="text-xs sm:text-sm text-gray-500">Pending Orders</CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold text-amber-500">
+          <CardContent className="p-4 sm:p-6">
+            <div className="text-2xl sm:text-3xl font-bold text-amber-500">
               {allOrders.filter(order => order.status === 'pending').length}
             </div>
           </CardContent>
@@ -200,48 +200,50 @@ const MedicineAdminDashboard = () => {
       </div>
       
       <Tabs defaultValue="medicines">
-        <TabsList className="mb-6">
-          <TabsTrigger value="medicines">
-            <Package className="h-4 w-4 mr-2" />
-            Manage Medicines
+        <TabsList className="mb-4 sm:mb-6 grid w-full grid-cols-2 text-xs sm:text-sm">
+          <TabsTrigger value="medicines" className="flex items-center gap-1 sm:gap-2">
+            <Package className="h-3 sm:h-4 w-3 sm:w-4" />
+            <span className="hidden sm:inline">Manage Medicines</span>
+            <span className="sm:hidden">Medicines</span>
           </TabsTrigger>
-          <TabsTrigger value="orders">
-            <ShoppingBag className="h-4 w-4 mr-2" />
-            Manage Orders
+          <TabsTrigger value="orders" className="flex items-center gap-1 sm:gap-2">
+            <ShoppingBag className="h-3 sm:h-4 w-3 sm:w-4" />
+            <span className="hidden sm:inline">Manage Orders</span>
+            <span className="sm:hidden">Orders</span>
           </TabsTrigger>
         </TabsList>
         
         <TabsContent value="medicines">
           <Card>
-            <CardHeader>
-              <div className="flex justify-between items-center">
+            <CardHeader className="p-4 sm:p-6">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-0">
                 <div>
-                  <CardTitle>Medicines</CardTitle>
-                  <CardDescription>Manage your store's medicine inventory</CardDescription>
+                  <CardTitle className="text-lg sm:text-xl">Medicines</CardTitle>
+                  <CardDescription className="text-xs sm:text-sm">Manage your store's medicine inventory</CardDescription>
                 </div>
                 <Dialog open={isMedicineDialogOpen} onOpenChange={setIsMedicineDialogOpen}>
                   <DialogTrigger asChild>
                     <Button onClick={() => {
                       setSelectedMedicine(null);
                       setIsEditing(false);
-                    }}>
-                      <Plus className="h-4 w-4 mr-2" />
+                    }} className="text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-3 h-auto w-full sm:w-auto">
+                      <Plus className="h-3 sm:h-4 w-3 sm:w-4 mr-1 sm:mr-2" />
                       Add New Medicine
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="sm:max-w-[600px]">
+                  <DialogContent className="sm:max-w-[600px] max-w-[95vw]">
                     <form onSubmit={handleMedicineSubmit}>
                       <DialogHeader>
-                        <DialogTitle>
+                        <DialogTitle className="text-lg sm:text-xl">
                           {isEditing ? 'Edit Medicine' : 'Add New Medicine'}
                         </DialogTitle>
-                        <DialogDescription>
+                        <DialogDescription className="text-xs sm:text-sm">
                           {isEditing ? 'Update medicine details below.' : 'Add the details for the new medicine.'}
                         </DialogDescription>
                       </DialogHeader>
                       
-                      <div className="grid gap-4 py-4">
-                        <div className="grid grid-cols-2 gap-4">
+                      <div className="grid gap-4 py-4 text-xs sm:text-sm">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div className="space-y-2">
                             <Label htmlFor="name">Medicine Name</Label>
                             <Input 
