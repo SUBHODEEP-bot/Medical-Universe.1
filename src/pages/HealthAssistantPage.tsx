@@ -298,54 +298,56 @@ const HealthAssistantPage = () => {
           </div>
           
           <Tabs defaultValue="chat" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-4 bg-gray-100 p-1 rounded-xl">
+            <TabsList className="grid w-full grid-cols-2 mb-3 sm:mb-4 bg-gray-100 p-1 rounded-lg sm:rounded-xl text-xs sm:text-sm">
               <TabsTrigger 
                 value="chat" 
                 className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-gray-800 transition-all duration-200 rounded-lg font-medium"
               >
-                <Bot className="mr-2 h-4 w-4" />
-                Health Assistant
+                <Bot className="mr-1 sm:mr-2 h-3 sm:h-4 w-3 sm:w-4" />
+                <span className="hidden sm:inline">Health Assistant</span>
+                <span className="sm:hidden">Assistant</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="medicine" 
                 className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white data-[state=active]:shadow-md data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:text-gray-800 transition-all duration-200 rounded-lg font-medium"
               >
-                <Pill className="mr-2 h-4 w-4" />
-                Medicine Suggestion
+                <Pill className="mr-1 sm:mr-2 h-3 sm:h-4 w-3 sm:w-4" />
+                <span className="hidden sm:inline">Medicine Suggestion</span>
+                <span className="sm:hidden">Medicine</span>
               </TabsTrigger>
             </TabsList>
             
             <TabsContent value="chat">
               <Card className="border-2 shadow-lg transition-all duration-300">
                 <CardContent className="p-0">
-                  <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white p-4 rounded-t-lg">
+                  <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white p-3 sm:p-4 rounded-t-lg">
                     <div className="flex items-center space-x-2">
-                      <div className="bg-white/20 rounded-full p-2">
-                        <Bot className="h-5 w-5" />
+                      <div className="bg-white/20 rounded-full p-1.5 sm:p-2">
+                        <Bot className="h-4 sm:h-5 w-4 sm:w-5" />
                       </div>
-                      <div>
-                        <h2 className="font-medium">Medical Universe Assistant</h2>
+                      <div className="min-w-0">
+                        <h2 className="font-medium text-sm sm:text-base">Medical Universe Assistant</h2>
                         <p className="text-xs text-blue-100">Online • Powered by AI</p>
                       </div>
                     </div>
                   </div>
                   
                   {/* Chat Area */}
-                  <ScrollArea className="h-[400px] p-4">
-                    <div className="space-y-4">
+                  <ScrollArea className="h-[300px] sm:h-[400px] p-3 sm:p-4">
+                    <div className="space-y-3 sm:space-y-4">
                       {chatHistory.map((chat, index) => <div key={index} className={`flex ${chat.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                          <div className={`max-w-[80%] p-3 rounded-lg shadow-sm ${chat.role === 'user' ? 'bg-blue-600 text-white rounded-br-none' : 'bg-gray-100 text-gray-800 rounded-bl-none'}`}>
-                            <div className="flex items-center space-x-2 mb-1">
+                          <div className={`max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 rounded-lg shadow-sm text-sm ${chat.role === 'user' ? 'bg-blue-600 text-white rounded-br-none' : 'bg-gray-100 text-gray-800 rounded-bl-none'}`}>
+                            <div className="flex items-center space-x-1 sm:space-x-2 mb-1">
                               {chat.role === 'user' ? <>
-                                  <span className="font-medium">You</span>
-                                  <Avatar className="h-5 w-5">
-                                    <User className="h-3 w-3" />
+                                  <span className="font-medium text-xs sm:text-sm">You</span>
+                                  <Avatar className="h-4 sm:h-5 w-4 sm:w-5">
+                                    <User className="h-2.5 sm:h-3 w-2.5 sm:w-3" />
                                   </Avatar>
                                 </> : <>
-                                  <Avatar className="h-5 w-5 bg-blue-100">
-                                    <Bot className="h-3 w-3 text-blue-600" />
+                                  <Avatar className="h-4 sm:h-5 w-4 sm:w-5 bg-blue-100">
+                                    <Bot className="h-2.5 sm:h-3 w-2.5 sm:w-3 text-blue-600" />
                                   </Avatar>
-                                  <span className="font-medium">Health Assistant</span>
+                                  <span className="font-medium text-xs sm:text-sm">Health Assistant</span>
                                 </>}
                             </div>
                             <p className="text-sm whitespace-pre-line">{chat.content}</p>

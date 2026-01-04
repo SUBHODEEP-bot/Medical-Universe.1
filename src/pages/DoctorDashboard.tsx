@@ -402,17 +402,17 @@ const DoctorDashboard = () => {
       <div className="flex-1 flex">
         <Sidebar userRole="doctor" className="hidden lg:block" />
         
-        <main className="flex-1 p-6 my-[50px]">
-          <div className="flex flex-col space-y-6">
-            <div className="flex items-center justify-between">
+        <main className="flex-1 p-3 sm:p-4 md:p-6 my-[40px] sm:my-[50px]">
+          <div className="flex flex-col space-y-4 sm:space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
               <div className="flex flex-col">
-                <h1 className="text-2xl font-bold">Doctor Dashboard</h1>
-                {doctorProfile && <div className="text-sm text-gray-500 mt-1">
+                <h1 className="text-xl sm:text-2xl font-bold">Doctor Dashboard</h1>
+                {doctorProfile && <div className="text-xs sm:text-sm text-gray-500 mt-1">
                     Profile: {doctorProfile.doctor_name || doctorProfile.email} (ID: {doctorProfile.id})
                   </div>}
               </div>
-              <div className="flex items-center space-x-4">
-                <div className="text-sm text-gray-500">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm">
+                <div className="text-gray-500">
                   {new Date().toLocaleDateString('en-US', {
                   weekday: 'long',
                   year: 'numeric',
@@ -454,42 +454,42 @@ const DoctorDashboard = () => {
             </Card>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg">Today's Overview</CardTitle>
+                <CardHeader className="pb-2 sm:pb-3 p-4 sm:p-6">
+                  <CardTitle className="text-base sm:text-lg">Today's Overview</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-blue-50 p-3 rounded-lg">
-                      <p className="text-sm text-gray-500">Total</p>
-                      <p className="text-2xl font-bold">{todaysStats.appointments}</p>
+                <CardContent className="p-4 sm:p-6">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                    <div className="bg-blue-50 p-2 sm:p-3 rounded-lg">
+                      <p className="text-xs sm:text-sm text-gray-500">Total</p>
+                      <p className="text-xl sm:text-2xl font-bold">{todaysStats.appointments}</p>
                     </div>
-                    <div className="bg-green-50 p-3 rounded-lg">
-                      <p className="text-sm text-gray-500">Completed</p>
-                      <p className="text-2xl font-bold">{todaysStats.completed}</p>
+                    <div className="bg-green-50 p-2 sm:p-3 rounded-lg">
+                      <p className="text-xs sm:text-sm text-gray-500">Completed</p>
+                      <p className="text-xl sm:text-2xl font-bold">{todaysStats.completed}</p>
                     </div>
-                    <div className="bg-amber-50 p-3 rounded-lg">
-                      <p className="text-sm text-gray-500">Upcoming</p>
-                      <p className="text-2xl font-bold">{todaysStats.upcoming}</p>
+                    <div className="bg-amber-50 p-2 sm:p-3 rounded-lg">
+                      <p className="text-xs sm:text-sm text-gray-500">Upcoming</p>
+                      <p className="text-xl sm:text-2xl font-bold">{todaysStats.upcoming}</p>
                     </div>
-                    <div className="bg-red-50 p-3 rounded-lg">
-                      <p className="text-sm text-gray-500">Cancelled</p>
-                      <p className="text-2xl font-bold">{todaysStats.cancelledBy.doctor + todaysStats.cancelledBy.patient}</p>
+                    <div className="bg-red-50 p-2 sm:p-3 rounded-lg">
+                      <p className="text-xs sm:text-sm text-gray-500">Cancelled</p>
+                      <p className="text-xl sm:text-2xl font-bold">{todaysStats.cancelledBy.doctor + todaysStats.cancelledBy.patient}</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="col-span-2">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg">Monthly Appointments</CardTitle>
-                  <CardDescription>
+              <Card className="sm:col-span-1 lg:col-span-2">
+                <CardHeader className="pb-2 sm:pb-3 p-4 sm:p-6">
+                  <CardTitle className="text-base sm:text-lg">Monthly Appointments</CardTitle>
+                  <CardDescription className="text-xs sm:text-sm">
                     Number of appointments per month
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="h-[150px] flex items-end space-x-2">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="h-[120px] sm:h-[150px] flex items-end gap-1 sm:gap-2">
                     {monthlyAppointments.map((count, idx) => <div key={idx} className="flex flex-col items-center flex-1">
                         <div className={`w-full rounded-t-sm ${idx === currentMonth ? 'bg-blue-600' : 'bg-blue-200'}`} style={{
                       height: `${count / 70 * 100}%`
@@ -505,10 +505,10 @@ const DoctorDashboard = () => {
               </Card>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
               <Card className="lg:col-span-2">
-                <CardHeader>
-                  <CardTitle className="text-lg">
+                <CardHeader className="p-4 sm:p-6">
+                  <CardTitle className="text-base sm:text-lg">
                     {activeTab === 'appointments' && `Appointments (${upcomingAppointments.length})`}
                     {activeTab === 'patients' && `Patients (${acceptedPatients.length})`}
                     {activeTab === 'prescriptions' && 'Prescriptions'}
@@ -516,30 +516,30 @@ const DoctorDashboard = () => {
                     {activeTab === 'lung-analyzer' && '🩹 Lung Sound Analyzer (Beta)'}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-4 sm:p-6">
                   {renderTabContent()}
                 </CardContent>
               </Card>
 
               <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Schedule</CardTitle>
-                  <CardDescription>Manage your availability</CardDescription>
+                <CardHeader className="p-4 sm:p-6">
+                  <CardTitle className="text-base sm:text-lg">Schedule</CardTitle>
+                  <CardDescription className="text-xs sm:text-sm">Manage your availability</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-md border" />
+                <CardContent className="p-4 sm:p-6">
+                  <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-md border text-sm" />
                   <div className="mt-4 space-y-2">
-                    <Button className="w-full flex items-center">
+                    <Button className="w-full flex items-center text-xs sm:text-sm py-2 sm:py-3">
                       <CalendarIcon className="mr-2 h-4 w-4" />
                       Manage Schedule
                     </Button>
-                    <Button variant="outline" className="w-full flex items-center">
+                    <Button variant="outline" className="w-full flex items-center text-xs sm:text-sm py-2 sm:py-3">
                       <FilePen className="mr-2 h-4 w-4" />
                       Write Prescription
                     </Button>
                     <Button 
                       variant="outline" 
-                      className="w-full flex items-center"
+                      className="w-full flex items-center text-xs sm:text-sm py-2 sm:py-3"
                       onClick={() => setActiveTab('lung-analyzer')}
                     >
                       🩹 Lung Sound Analyzer

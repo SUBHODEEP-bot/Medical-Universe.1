@@ -278,174 +278,175 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white shadow-sm border-b">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
+        <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-              <p className="text-gray-600 mt-1">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1">
                 Welcome, {localStorage.getItem('adminUser') || 'Admin'}
               </p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <Button 
                 onClick={() => handleNavigation("/")} 
                 variant="outline"
+                className="text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-3 h-auto"
               >
                 Back to Home
               </Button>
               <Button 
                 onClick={() => handleNavigation("/admin/medicines")} 
-                className="bg-green-600 hover:bg-green-700"
+                className="bg-green-600 hover:bg-green-700 text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-3 h-auto"
               >
-                <Plus className="h-4 w-4 mr-2" />
+                <Plus className="h-3 sm:h-4 w-3 sm:w-4 mr-1 sm:mr-2" />
                 Add Medicine
               </Button>
-              <Button onClick={handleLogout} variant="destructive" className="flex items-center gap-2">
-                <LogOut className="h-4 w-4" />
-                Logout
+              <Button onClick={handleLogout} variant="destructive" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-3 h-auto">
+                <LogOut className="h-3 sm:h-4 w-3 sm:w-4" />
+                <span className="hidden sm:inline">Logout</span>
               </Button>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+      <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Total Users</p>
-                  <p className="text-3xl font-bold text-gray-900">{stats.totalUsers}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Total Users</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-gray-900">{stats.totalUsers}</p>
                 </div>
-                <div className="bg-blue-100 p-3 rounded-full">
-                  <Users className="h-6 w-6 text-blue-600" />
+                <div className="bg-blue-100 p-2 sm:p-3 rounded-full">
+                  <Users className="h-5 sm:h-6 w-5 sm:w-6 text-blue-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Total Doctors</p>
-                  <p className="text-3xl font-bold text-gray-900">{stats.totalDoctors}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Total Doctors</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-gray-900">{stats.totalDoctors}</p>
                 </div>
-                <div className="bg-green-100 p-3 rounded-full">
-                  <UserCheck className="h-6 w-6 text-green-600" />
+                <div className="bg-green-100 p-2 sm:p-3 rounded-full">
+                  <UserCheck className="h-5 sm:h-6 w-5 sm:w-6 text-green-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Total Patients</p>
-                  <p className="text-3xl font-bold text-gray-900">{stats.totalPatients}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Total Patients</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-gray-900">{stats.totalPatients}</p>
                 </div>
-                <div className="bg-purple-100 p-3 rounded-full">
-                  <Users className="h-6 w-6 text-purple-600" />
+                <div className="bg-purple-100 p-2 sm:p-3 rounded-full">
+                  <Users className="h-5 sm:h-6 w-5 sm:w-6 text-purple-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Total Medicines</p>
-                  <p className="text-3xl font-bold text-gray-900">{stats.totalMedicines}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Total Medicines</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-gray-900">{stats.totalMedicines}</p>
                 </div>
-                <div className="bg-green-100 p-3 rounded-full">
-                  <Package className="h-6 w-6 text-green-600" />
+                <div className="bg-green-100 p-2 sm:p-3 rounded-full">
+                  <Package className="h-5 sm:h-6 w-5 sm:w-6 text-green-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Low Stock</p>
-                  <p className="text-3xl font-bold text-red-600">{stats.lowStockMedicines}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Low Stock</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-red-600">{stats.lowStockMedicines}</p>
                 </div>
-                <div className="bg-red-100 p-3 rounded-full">
-                  <AlertTriangle className="h-6 w-6 text-red-600" />
+                <div className="bg-red-100 p-2 sm:p-3 rounded-full">
+                  <AlertTriangle className="h-5 sm:h-6 w-5 sm:w-6 text-red-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Total Orders</p>
-                  <p className="text-3xl font-bold text-gray-900">{stats.totalOrders}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Total Orders</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-gray-900">{stats.totalOrders}</p>
                 </div>
-                <div className="bg-orange-100 p-3 rounded-full">
-                  <ShoppingBag className="h-6 w-6 text-orange-600" />
+                <div className="bg-orange-100 p-2 sm:p-3 rounded-full">
+                  <ShoppingBag className="h-5 sm:h-6 w-5 sm:w-6 text-orange-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Pending Orders</p>
-                  <p className="text-3xl font-bold text-orange-600">{stats.pendingOrders}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Pending Orders</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-orange-600">{stats.pendingOrders}</p>
                 </div>
-                <div className="bg-orange-100 p-3 rounded-full">
-                  <AlertTriangle className="h-6 w-6 text-orange-600" />
+                <div className="bg-orange-100 p-2 sm:p-3 rounded-full">
+                  <AlertTriangle className="h-5 sm:h-6 w-5 sm:w-6 text-orange-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Blood Requests</p>
-                  <p className="text-3xl font-bold text-red-600">{stats.totalBloodRequests}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Blood Requests</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-red-600">{stats.totalBloodRequests}</p>
                 </div>
-                <div className="bg-red-100 p-3 rounded-full">
-                  <Heart className="h-6 w-6 text-red-600" />
+                <div className="bg-red-100 p-2 sm:p-3 rounded-full">
+                  <Heart className="h-5 sm:h-6 w-5 sm:w-6 text-red-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600">Pending Requests</p>
-                  <p className="text-3xl font-bold text-gray-900">{stats.pendingRequests}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-600">Pending Requests</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-gray-900">{stats.pendingRequests}</p>
                 </div>
-                <div className="bg-purple-100 p-3 rounded-full">
-                  <AlertTriangle className="h-6 w-6 text-purple-600" />
+                <div className="bg-purple-100 p-2 sm:p-3 rounded-full">
+                  <AlertTriangle className="h-5 sm:h-6 w-5 sm:w-6 text-purple-600" />
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
           {quickActions.map((action, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow cursor-pointer">
               <CardContent 
-                className="p-6" 
+                className="p-4 sm:p-6" 
                 onClick={() => handleNavigation(action.path)}
               >
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center space-x-4">
                     <div className={`${action.color} p-3 rounded-lg`}>
                       <action.icon className="h-6 w-6 text-white" />

@@ -173,30 +173,30 @@ const DoctorsPage = () => {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      <main className="container mx-auto px-4 py-8">
-        <div className="bg-zinc-200 my-[70px] p-6 rounded-lg">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold">Our Doctors</h1>
-            <Button variant="outline" onClick={fetchDoctors}>
+      <main className="container mx-auto px-3 sm:px-4 py-6 sm:py-8">
+        <div className="bg-zinc-200 my-12 sm:my-16 md:my-[70px] p-4 sm:p-6 rounded-lg">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 mb-4 sm:mb-6">
+            <h1 className="text-xl sm:text-2xl font-bold">Our Doctors</h1>
+            <Button variant="outline" onClick={fetchDoctors} className="text-xs sm:text-sm">
               Refresh Doctors
             </Button>
           </div>
           
           {/* Search and Filter */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
             <div className="relative">
               <Search className="absolute left-3 top-2.5 sm:top-3 h-4 w-4 text-gray-400" />
               <Input
                 placeholder="Search doctors by name or specialty"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 text-sm"
+                className="pl-10 text-xs sm:text-sm"
               />
             </div>
             <select
               value={selectedSpecialty}
               onChange={(e) => setSelectedSpecialty(e.target.value)}
-              className="px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               {specialties.map((specialty) => (
                 <option key={specialty} value={specialty}>{specialty}</option>

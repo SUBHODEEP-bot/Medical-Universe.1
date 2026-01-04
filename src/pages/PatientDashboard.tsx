@@ -67,10 +67,10 @@ const PatientDashboard = () => {
       <div className="flex-1 flex">
         <Sidebar userRole="patient" className="hidden lg:block" />
         
-        <main className="flex-1 p-6">
-          <div className="flex flex-col space-y-6 bg-zinc-200 my-[70px] p-6 rounded-lg">
+        <main className="flex-1 p-3 sm:p-4 md:p-6">
+          <div className="flex flex-col space-y-4 sm:space-y-6 bg-zinc-200 my-[50px] sm:my-[60px] md:my-[70px] p-4 sm:p-6 rounded-lg">
             {/* Hero Section with Medical Image */}
-            <div className="relative h-64 rounded-lg overflow-hidden mb-6">
+            <div className="relative h-40 sm:h-48 md:h-64 rounded-lg overflow-hidden mb-4 sm:mb-6">
               <img 
                 src="/lovable-uploads/283e6d37-f0a6-44eb-86ea-c1d18b486de9.png"
                 alt="Medical professionals providing healthcare services"
@@ -78,15 +78,15 @@ const PatientDashboard = () => {
               />
               <div className="absolute inset-0 bg-blue-900 bg-opacity-50 flex items-center justify-center">
                 <div className="text-center text-white">
-                  <h1 className="text-3xl font-bold mb-2">Welcome to Medical Universe</h1>
-                  <p className="text-lg">Your comprehensive healthcare companion</p>
+                  <h1 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">Welcome to Medical Universe</h1>
+                  <p className="text-sm sm:text-base">Your comprehensive healthcare companion</p>
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold">Patient Dashboard</h2>
-              <Button variant="destructive" className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+              <h2 className="text-xl sm:text-2xl font-bold">Patient Dashboard</h2>
+              <Button variant="destructive" className="flex items-center gap-2 text-sm sm:text-base w-full sm:w-auto">
                 <Bell className="h-4 w-4" />
                 SOS Emergency
               </Button>
@@ -95,24 +95,24 @@ const PatientDashboard = () => {
             {/* Recovery Journey Section */}
             {!loading && (
               <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3 text-xl">
-                    <Heart className="h-6 w-6 text-blue-600" />
-                    Recovery Journey
+                <CardHeader className="p-4 sm:p-6">
+                  <CardTitle className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-lg sm:text-xl">
+                    <Heart className="h-5 sm:h-6 w-5 sm:w-6 text-blue-600 flex-shrink-0" />
+                    <span>Recovery Journey</span>
                     {userProgress && (
-                      <Badge variant="outline" className="bg-blue-100 text-blue-700 border-blue-300">
+                      <Badge variant="outline" className="bg-blue-100 text-blue-700 border-blue-300 text-xs sm:text-sm w-fit">
                         Day {userProgress.current_day}
                       </Badge>
                     )}
                   </CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-xs sm:text-sm">
                     {userProgress 
                       ? "Continue your AI-guided recovery program" 
                       : "Start your personalized recovery program with AI guidance"
                     }
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-4 sm:p-6">
                   {userProgress ? (
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">

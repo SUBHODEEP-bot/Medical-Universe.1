@@ -14,71 +14,71 @@ const ContactPage = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
-            <p className="text-lg text-gray-600">
+      <section className="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 bg-white">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 animate-fade-in">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-6">Get in Touch</h1>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600">
               Have questions about our services or need assistance? Our friendly team is here to help.
               Reach out to us using the contact information below.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 md:gap-16 items-center">
             <div className="order-2 md:order-1 animate-slide-up">
-              <Card className="overflow-hidden border-0 rounded-2xl shadow-xl">
-                <div className="p-8">
-                  <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
+              <Card className="overflow-hidden border-0 rounded-lg sm:rounded-2xl shadow-lg">
+                <div className="p-4 sm:p-6 md:p-8">
+                  <h2 className="text-lg sm:text-2xl font-bold mb-4 sm:mb-6">Send Us a Message</h2>
                   
-                  <form className="space-y-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
+                  <form className="space-y-3 sm:space-y-4 md:space-y-6">
+                    <div className="space-y-1 sm:space-y-2">
+                      <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700">Full Name</label>
                       <div className="relative">
                         <input 
                           type="text" 
                           id="name" 
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-aqua focus:border-medical-aqua transition-all" 
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-aqua focus:border-medical-aqua transition-all text-sm" 
                           placeholder="Enter your name" 
                         />
                       </div>
                     </div>
                     
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+                    <div className="space-y-1 sm:space-y-2">
+                      <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700">Email Address</label>
                       <div className="relative">
                         <input 
                           type="email" 
                           id="email" 
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-aqua focus:border-medical-aqua transition-all" 
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-aqua focus:border-medical-aqua transition-all text-sm" 
                           placeholder="Enter your email" 
                         />
                       </div>
                     </div>
                     
-                    <div className="space-y-2">
-                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700">Subject</label>
+                    <div className="space-y-1 sm:space-y-2">
+                      <label htmlFor="subject" className="block text-xs sm:text-sm font-medium text-gray-700">Subject</label>
                       <div className="relative">
                         <input 
                           type="text" 
                           id="subject" 
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-aqua focus:border-medical-aqua transition-all" 
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-aqua focus:border-medical-aqua transition-all text-sm" 
                           placeholder="Enter subject" 
                         />
                       </div>
                     </div>
                     
-                    <div className="space-y-2">
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                    <div className="space-y-1 sm:space-y-2">
+                      <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-gray-700">Message</label>
                       <textarea 
                         id="message" 
                         rows={4} 
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-aqua focus:border-medical-aqua transition-all" 
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-medical-aqua focus:border-medical-aqua transition-all text-sm" 
                         placeholder="How can we help you?"
                       ></textarea>
                     </div>
                     
-                    <Button className="w-full rounded-lg bg-gradient-med hover:shadow-lg hover:scale-[1.02] transition-all py-6">
-                      <Send className="mr-2 h-5 w-5" /> Send Message
+                    <Button className="w-full rounded-lg bg-gradient-med hover:shadow-lg hover:scale-[1.02] transition-all py-5 sm:py-6 text-sm sm:text-base">
+                      <Send className="mr-2 h-4 sm:h-5 w-4 sm:w-5" /> Send Message
                     </Button>
                   </form>
                 </div>
@@ -86,15 +86,15 @@ const ContactPage = () => {
             </div>
             
             <div className="order-1 md:order-2 animate-fade-in">
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <h2 className="text-2xl font-bold mb-2">Contact Information</h2>
-                  <p className="text-gray-600">
+                  <h2 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3">Contact Information</h2>
+                  <p className="text-xs sm:text-sm md:text-base text-gray-600">
                     We're available to assist you through multiple channels. Choose the one that's most convenient for you.
                   </p>
                 </div>
                 
-                <div className="grid grid-cols-1 gap-6">
+                <div className="grid grid-cols-1 gap-4 sm:gap-6">
                   <ContactInfoCard 
                     icon={<Phone className="h-6 w-6 text-white" />}
                     title="Phone Number"
